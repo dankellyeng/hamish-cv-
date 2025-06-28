@@ -15,10 +15,19 @@ function App() {
     >
       <Box textAlign="center">
         <Avatar
-          src="/assets/profile.jpg"
+          src="/profile.png"
           alt="Hamish"
+          slotProps={{
+            img: {
+              style: {
+                objectFit: "cover",
+                objectPosition: "center",
+              },
+            },
+          }}
           sx={{ width: 200, height: 200, margin: "0 auto", mb: 2 }}
         />
+
         <Typography variant="h4" component="h1">
           hi, I'm Hamish, please hire me
         </Typography>
