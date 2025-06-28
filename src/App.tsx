@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { keyframes } from "@mui/system";
+import { useRef } from "react";
 
 const rotate = keyframes`
   from { transform: scale(1.1) rotate(0deg); }
@@ -10,6 +11,8 @@ const rotate = keyframes`
 `;
 
 function App() {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
   return (
     <Container
       sx={{
@@ -23,6 +26,7 @@ function App() {
         <Avatar
           src="/profile.png"
           alt="Hamish"
+          onClick={() => audioRef.current?.play()}
           sx={{
             width: 200,
             height: 200,
@@ -42,6 +46,7 @@ function App() {
           hi, I'm Hamish, please hire me
         </Typography>
       </Box>
+      <audio ref={audioRef} src="/svu.mp3" loop style={{ display: "none" }} />
     </Container>
   );
 }
